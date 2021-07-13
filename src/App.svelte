@@ -93,7 +93,7 @@
 
 <style>
   #chartWrapper {
-    margin: 0 auto;
+    margin: 40px auto;
     width: 90vw;
     /* height: 80vh; */
   }
@@ -146,15 +146,15 @@
   h1 {
     color: #ff3e00;
     text-transform: uppercase;
-    font-size: 6vh;
+    font-size: 3vh;
     font-weight: 100;
     line-height: 1.1;
     margin: 2rem auto;
-    max-width: 14rem;
+    /* max-width: 14rem; */
   }
 
   p {
-    max-width: 14rem;
+    /* max-width: 14rem; */
     margin: 1rem auto;
     line-height: 1.35;
   }
@@ -162,6 +162,7 @@
   @media (min-width: 480px) {
     h1 {
       max-width: none;
+      font-size: 6vh;
     }
 
     p {

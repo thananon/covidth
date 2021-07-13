@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "chart.js": "^3.4.1",
+    "dayjs": "^1.10.6",
     "sveltestrap": "^5.4.0"
   }
 }
