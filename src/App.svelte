@@ -4,7 +4,11 @@
   import covtest from "./covtest.json"
   import Cards from "./Cards.svelte"
 
-  const records = covtest.result.records.slice(-30)
+  Chart.defaults.font.family = '"Anakotmai", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif'
+
+  const chartDataLength = window.innerWidth > 576 ? 30 : 10
+
+  const records = covtest.result.records.slice(-chartDataLength)
 
   const labels = records.map((record) => record.Date.split(" ")[0])
 
@@ -58,6 +62,9 @@
               type: "linear",
               display: true,
               position: "left",
+              afterFit: (scale) => {
+                scale.width = 58
+              },
             },
             y1: {
               type: "linear",
