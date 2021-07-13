@@ -2,6 +2,7 @@
   import Chart from "chart.js/auto"
   import { onMount } from 'svelte';
   import covtest from "./covtest.json"
+  import Cards from "./Cards.svelte"
 
   const records = covtest.result.records.slice(-30)
 
@@ -33,7 +34,6 @@
       yAxisID: 'y',
       fill: true
     }]
-
   };
 
   onMount(() => {
@@ -54,7 +54,7 @@
               type: 'linear',
               display: true,
               position: 'left',
-            
+
             },
             y1: {
               type: 'linear',
@@ -68,11 +68,19 @@
   })
 </script>
 
+<svelte:head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
+</svelte:head>
+
 <main>
   <h1>เราตรวจโควิดกันวันละกี่เคส?</h1>
+
+  <Cards />
+
   <div id="chartWrapper">
     <canvas id="myChart"></canvas>
   </div>
+
   <h5>ข้อมูลอัพเดทล่าสุดวันที่ 10/07/2021 จากกรมวิทยาศาสตร์ข้อมูล</h5>
   เราก็ไม่เข้าใจทำไมข้อมูลพวกนี้เค้าไม่อัพเดททุกวัน
 </main>
@@ -81,7 +89,7 @@
   #chartWrapper {
     margin: 0 auto;
     width: 90vw;
-    height: 80vh;
+    /* height: 80vh; */
   }
 
   @font-face {
