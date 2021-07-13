@@ -4,46 +4,55 @@
   import covtest from "./covtest.json"
   import Cards from "./Cards.svelte"
 
-  const records = covtest.result.records.slice(-30)
+  let recordNumber = 30
+  let myChart
+  let selectedList = [false, false, true]
 
-  const labels = records.map((record) => record.Date.split(" ")[0])
-
-  const data = {
-    labels: labels,
-    datasets: [
-      {
-        type: "line",
-        label: "% การตรวจพบ",
-        backgroundColor: "rgb(0, 0, 0)",
-        borderColor: "rgb(0, 0, 0)",
-        data: records.map((record) => (record.Pos / record.Total) * 100),
-        yAxisID: "y1",
-      },
-      {
-        type: "bar",
-        label: "ติด",
-        backgroundColor: "rgb(85,119,234)",
-        borderColor: "rgb(0, 0, 0)",
-        data: records.map((record) => record.Pos),
-        yAxisID: "y",
-        fill: true,
-      },
-      {
-        type: "bar",
-        label: "ตรวจ",
-        backgroundColor: "rgb(255, 99, 132)",
-        borderColor: "rgb(255, 99, 132)",
-        data: records.map((record) => record.Total),
-        yAxisID: "y",
-        fill: true,
-      },
-    ],
+  if (screen.width < 768) {
+    recordNumber = 3
+    selectedList = [true, false, false]
+  } else if (screen.width < 992) {
+    recordNumber = 7
+    selectedList = [false, true, false]
   }
 
-  onMount(async () => {
-    new Chart(
-      // @ts-ignore
+  const loadChart = async () => {
+    const records = covtest.result.records.slice(-recordNumber)
+    const labels = records.map((record) => record.Date.split(" ")[0])
+    const data = {
+      labels: labels,
+      datasets: [
+        {
+          type: "line",
+          label: "% การตรวจพบ",
+          backgroundColor: "rgb(0, 0, 0)",
+          borderColor: "rgb(0, 0, 0)",
+          data: records.map((record) => (record.Pos / record.Total) * 100),
+          yAxisID: "y1",
+        },
+        {
+          type: "bar",
+          label: "ติด",
+          backgroundColor: "rgb(85,119,234)",
+          borderColor: "rgb(0, 0, 0)",
+          data: records.map((record) => record.Pos),
+          yAxisID: "y",
+          fill: true,
+        },
+        {
+          type: "bar",
+          label: "ตรวจ",
+          backgroundColor: "rgb(255, 99, 132)",
+          borderColor: "rgb(255, 99, 132)",
+          data: records.map((record) => record.Total),
+          yAxisID: "y",
+          fill: true,
+        },
+      ],
+    }
 
+    myChart = new Chart(
+      // @ts-ignore
       document.getElementById("myChart"),
       {
         type: "bar",
@@ -68,7 +77,9 @@
         },
       },
     )
-  })
+  }
+
+  onMount(loadChart)
 </script>
 
 <svelte:head>
@@ -82,6 +93,21 @@
   <h1>เราตรวจโควิดกันวันละกี่เคส?</h1>
 
   <Cards />
+
+  <hr />
+  <div class="container">
+    <div class="row">
+      <div class="col" />
+      <div class="col-6 col-md-4">
+        <select id="getShowDate" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" on:change={() => { let value = document.getElementById("getShowDate").value; if (recordNumber != value) { recordNumber = value; myChart.destroy(); loadChart(); } }} >
+          <option id="select3Days" value="3" selected={selectedList[0]} >3 วัน</option >
+          <option id="select7Days" value="7" selected={selectedList[1]} >7 วัน</option >
+          <option id="select30Days" value="30" selected={selectedList[2]} >30 วัน</option >
+        </select>
+      </div>
+      <div class="col" />
+    </div>
+  </div>
 
   <div id="chartWrapper">
     <canvas id="myChart" />
