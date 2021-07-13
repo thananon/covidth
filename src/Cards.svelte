@@ -111,6 +111,12 @@
     font-size: 1.2em;
   }
 
+  * {
+    font-family: "Anakotmai", -apple-system, BlinkMacSystemFont, "Segoe UI",
+      Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+      sans-serif;
+  }
+
   @media (max-width: 576px) {
     .bg-pos {
       background: rgba(202, 13, 13, 0.85);
