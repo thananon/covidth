@@ -84,6 +84,21 @@
     )
   }
 
+  const onSelectChange = () => {
+    let value = document.getElementById("getShowDate").value
+    if (recordNumber != value) {
+      recordNumber = value
+      myChart.destroy()
+      loadChart()
+      if(value === '30'){
+        document.getElementById("chartInner").style.minWidth = '750px'
+      }
+      else if(value === '7'){
+        document.getElementById("chartInner").style.minWidth = '500px'
+      }
+    }
+  }
+
   onMount(loadChart)
 </script>
 
@@ -104,7 +119,7 @@
     <div class="row">
       <div class="col" />
       <div class="col-6 col-md-4">
-        <select id="getShowDate" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" on:change={() => { let value = document.getElementById("getShowDate").value; if (recordNumber != value) { recordNumber = value; myChart.destroy(); loadChart(); } }} >
+        <select id="getShowDate" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" on:change={() => {onSelectChange()}} >
           <option id="select3Days" value="3" selected={selectedList[0]} >3 วัน</option >
           <option id="select7Days" value="7" selected={selectedList[1]} >7 วัน</option >
           <option id="select30Days" value="30" selected={selectedList[2]} >30 วัน</option >
@@ -115,7 +130,9 @@
   </div>
 
   <div id="chartWrapper">
-    <canvas id="myChart" />
+    <div id="chartInner">
+      <canvas id="myChart" />
+    </div>
   </div>
 
   <h5>ข้อมูลอัพเดทล่าสุดวันที่ 10/07/2021 จากกรมวิทยาศาสตร์ข้อมูล</h5>
@@ -126,7 +143,12 @@
   #chartWrapper {
     margin: 40px auto;
     width: 90vw;
+    overflow-x: scroll;
     /* height: 80vh; */
+  }
+
+  #chartInner{
+    width: 100%;
   }
 
   @font-face {
