@@ -4,12 +4,17 @@
   import locale_th from 'dayjs/locale/th'
   import covtest from "./covtest.json"
   import relativeTime from 'dayjs/plugin/relativeTime'
+  import timezone from 'dayjs/plugin/timezone'
+  import utc from 'dayjs/plugin/utc'
 
+  dayjs.extend(utc)
+  dayjs.extend(timezone)
+  dayjs.tz.setDefault("Asia/Bangkok")
   dayjs.extend(relativeTime)
   dayjs.locale('th')
   
   const latestTestRecord = covtest.result.records.slice(-1)[0]
-  const latestTestRecordDate = dayjs(latestTestRecord.Date).fromNow()
+  const latestTestRecordDate = dayjs(latestTestRecord.Date)
   const numberFormatter = new Intl.NumberFormat("en-TH", { maximumFractionDigits: 3 })
 
   let latestData = {}
@@ -23,7 +28,6 @@
     const briefingsData = await briefingsRes.json()
     latestData = briefingsData.slice(-1)[0]
     latestDataDate = dayjs(latestData.Date)
-
     latestDataDateWithTest = briefingsData
       .slice(-30)
       .find(
@@ -69,7 +73,7 @@
         <h5 class="card-title">อัพเดตล่าสุด</h5>
         <p class="card-text" id="recs">
           {latestDataDate
-            ? latestTestRecordDate
+            ? latestTestRecordDate.from(latestDataDate)
             : "..."}
         </p>
       </div>
