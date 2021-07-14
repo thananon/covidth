@@ -1,11 +1,17 @@
 <script>
   import { onMount } from "svelte"
   import dayjs from "dayjs"
+  import locale_th from 'dayjs/locale/th'
   import covtest from "./covtest.json"
+  import relativeTime from 'dayjs/plugin/relativeTime'
 
+  dayjs.extend(relativeTime)
+  dayjs.locale('th')
+  
   const latestTestRecord = covtest.result.records.slice(-1)[0]
-  const latestTestRecordDate = dayjs(latestTestRecord.Date)
+  const latestTestRecordDate = dayjs(latestTestRecord.Date).fromNow()
   const numberFormatter = new Intl.NumberFormat("en-TH", { maximumFractionDigits: 3 })
+
   let latestData = {}
   let latestDataDate
   let latestDataDateWithTest = {}
@@ -63,9 +69,7 @@
         <h5 class="card-title">อัพเดตล่าสุด</h5>
         <p class="card-text" id="recs">
           {latestDataDate
-            ? `${Math.abs(
-                latestTestRecordDate.diff(latestDataDate, "day"),
-              )} วันที่แล้ว`
+            ? latestTestRecordDate
             : "..."}
         </p>
       </div>
@@ -90,9 +94,7 @@
     background: rgba(17, 173, 82, 0.85);
     border-radius: 0 0 15px 0;
   }
-  .bg-dark-10 {
-    background: rgba(0, 0, 0, 0.2);
-  }
+  
   .card-stat {
     font-family: "Prompt", sans-serif;
     min-width: 60%;
@@ -105,10 +107,6 @@
   .card-stat .card-text {
     font-weight: bolder;
     font-size: 2.5em;
-  }
-  .card-footer > small > span {
-    font-weight: bolder;
-    font-size: 1.2em;
   }
 
   * {
