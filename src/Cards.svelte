@@ -5,7 +5,7 @@
 
   const latestTestRecord = covtest.result.records.slice(-1)[0]
   const latestTestRecordDate = dayjs(latestTestRecord.Date)
-
+  const numberFormatter = new Intl.NumberFormat("en-TH", { maximumFractionDigits: 3 })
   let latestData = {}
   let latestDataDate
   let latestDataDateWithTest = {}
@@ -37,13 +37,13 @@
     <div class="card bg-pos">
       <div class="card-body">
         <h5 class="card-title">ตรวจ</h5>
-        <p class="card-text" id="tests">{latestTestRecord.Total}</p>
+        <p class="card-text" id="tests">{numberFormatter.format(latestTestRecord.Total)}</p>
       </div>
     </div>
     <div class="card bg-death">
       <div class="card-body">
         <h5 class="card-title">ติด</h5>
-        <p class="card-text" id="cases">{latestTestRecord.Pos}</p>
+        <p class="card-text" id="cases">{numberFormatter.format(latestTestRecord.Pos)}</p>
       </div>
     </div>
   </div>
