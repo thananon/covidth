@@ -18,7 +18,7 @@
     <a href="https://github.com/thananon/covidth"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://covidth.vercel.app/">View Demo</a>
+    <a href="https://covidth.info/">View Website</a>
     ·
     <a href="https://github.com/thananon/covidth/issues">Report Bug</a>
     ·
@@ -57,7 +57,7 @@
 
 <!-- ABOUT THE PROJECT -->
 # About The Project
-[![Product Name Screen Shot][product-screenshot]](https://covidth.vercel.app/)
+[![CovidTH][product-screenshot]](https://covidth.info/)
 
 
 *** ฝากเติมหน่อยนะครับ ^ ^
@@ -69,11 +69,7 @@ To get a local copy up and running follow these simple steps.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
+* Node.js
 
 ### Installation
 
@@ -181,7 +177,7 @@ Project Link: [https://github.com/thananon/covidth](https://github.com/thananon/
 * [Svelte](https://svelte.dev/)
 * [vite](https://vitejs.dev/)
 * [chart.js](https://www.chartjs.org/)
-* [Bootsrap for Svelt](https://sveltestrap.js.org/?path=/story/components--get-started)
+* [SvelteStrap](https://sveltestrap.js.org/)
 
 
 [contributors-shield]: https://img.shields.io/github/contributors/thananon/covidth.svg?style=for-the-badge
@@ -193,4 +189,3 @@ Project Link: [https://github.com/thananon/covidth](https://github.com/thananon/
 [issues-shield]: https://img.shields.io/github/issues/thananon/covidth.svg?style=for-the-badge
 [issues-url]: https://github.com/thananon/covidth/issues
 [product-screenshot]: public/rattaban_huakuy_v2.png
-
