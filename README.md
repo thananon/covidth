@@ -28,7 +28,7 @@
 
 <!-- TABLE OF CONTENTS -->
 <details open="open">
-  <summary><h2 style="display: inline-block">Table of Contents</h2></summary>
+  <summary>Table of Contents</summary>
   <ol>
     <li>
       <a href="#about-the-project">About The Project</a>
@@ -52,6 +52,7 @@
     <li><a href="#acknowledgements">Acknowledgements</a></li>
   </ol>
 </details>
+
 
 
 <!-- ABOUT THE PROJECT -->
@@ -170,8 +171,7 @@ Distributed under the MIT License. See `LICENSE` for more information. -->
 
 <!-- CONTACT -->
 ## CONTACT
-
-Your Name - [@9ARM](https://www.youtube.com/channel/UCoiEtD4v1qMAqHV5MDI5Qpg) - Youtube
+Name - [@9ARM](https://www.youtube.com/channel/UCoiEtD4v1qMAqHV5MDI5Qpg) - Youtube
 
 Project Link: [https://github.com/thananon/covidth](https://github.com/thananon/covidth)
 
