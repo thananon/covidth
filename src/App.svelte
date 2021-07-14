@@ -4,6 +4,8 @@
   import covtest from "./covtest.json"
   import Cards from "./Cards.svelte"
 
+  Chart.defaults.font.family = '"Anakotmai", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif'
+
   let recordNumber = 30
   let myChart
   let selectedList = [false, false, true]
@@ -67,6 +69,9 @@
               type: "linear",
               display: true,
               position: "left",
+              afterFit: (scale) => {
+                scale.width = 58
+              },
             },
             y1: {
               type: "linear",
