@@ -13,7 +13,7 @@
   <h3 align="center">COVID TH</h3>
 
   <p align="center">
-    Rattaban Huakuy
+    Project website display Covid data.
     <br />
     <a href="https://github.com/thananon/covidth"><strong>Explore the docs »</strong></a>
     <br />
