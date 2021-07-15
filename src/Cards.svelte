@@ -1,21 +1,23 @@
 <script>
   import { onMount } from "svelte"
   import dayjs from "dayjs"
-  import locale_th from 'dayjs/locale/th'
+  import locale_th from "dayjs/locale/th"
   import covtest from "./covtest.json"
-  import relativeTime from 'dayjs/plugin/relativeTime'
-  import timezone from 'dayjs/plugin/timezone'
-  import utc from 'dayjs/plugin/utc'
+  import relativeTime from "dayjs/plugin/relativeTime"
+  import timezone from "dayjs/plugin/timezone"
+  import utc from "dayjs/plugin/utc"
 
   dayjs.extend(utc)
   dayjs.extend(timezone)
   dayjs.tz.setDefault("Asia/Bangkok")
   dayjs.extend(relativeTime)
-  dayjs.locale('th')
-  
+  dayjs.locale("th")
+
   const latestTestRecord = covtest.result.records.slice(-1)[0]
   const latestTestRecordDate = dayjs(latestTestRecord.Date)
-  const numberFormatter = new Intl.NumberFormat("en-TH", { maximumFractionDigits: 3 })
+  const numberFormatter = new Intl.NumberFormat("en-TH", {
+    maximumFractionDigits: 3,
+  })
 
   let latestData = {}
   let latestDataDate
@@ -47,13 +49,17 @@
     <div class="card bg-pos">
       <div class="card-body">
         <h5 class="card-title">ตรวจ</h5>
-        <p class="card-text" id="tests">{numberFormatter.format(latestTestRecord.Total)}</p>
+        <p class="card-text" id="tests">
+          {numberFormatter.format(latestTestRecord.Total)}
+        </p>
       </div>
     </div>
     <div class="card bg-death">
       <div class="card-body">
         <h5 class="card-title">ติด</h5>
-        <p class="card-text" id="cases">{numberFormatter.format(latestTestRecord.Pos)}</p>
+        <p class="card-text" id="cases">
+          {numberFormatter.format(latestTestRecord.Pos)}
+        </p>
       </div>
     </div>
   </div>
@@ -72,9 +78,7 @@
       <div class="card-body">
         <h5 class="card-title">อัพเดตล่าสุด</h5>
         <p class="card-text" id="recs">
-          {latestDataDate
-            ? latestTestRecordDate.from(latestDataDate)
-            : "..."}
+          {latestDataDate ? latestTestRecordDate.from(latestDataDate) : "..."}
         </p>
       </div>
     </div>
@@ -98,7 +102,7 @@
     background: rgba(17, 173, 82, 0.85);
     border-radius: 0 0 15px 0;
   }
-  
+
   .card-stat {
     font-family: "Prompt", sans-serif;
     min-width: 60%;
@@ -106,7 +110,8 @@
     margin: 0 auto;
   }
   .card-stat .card-title {
-    font-size: 1em;
+    font-size: 1.25em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
   }
   .card-stat .card-text {
     font-weight: bolder;

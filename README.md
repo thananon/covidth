@@ -53,23 +53,25 @@
   </ol>
 </details>
 
-
-
 <!-- ABOUT THE PROJECT -->
+
 # About The Project
+
+Thailand Covid-19 Daily Tests Dashboard
+
 [![CovidTH][product-screenshot]](https://covidth.info/)
 
-
-*** ฝากเติมหน่อยนะครับ ^ ^
+\*\*\* ฝากเติมหน่อยนะครับ ^ ^
 
 <!-- GETTING STARTED -->
+
 ## Getting Started
 
 To get a local copy up and running follow these simple steps.
 
 ### Prerequisites
 
-* Node.js
+- Node.js
 
 ### Installation
 
@@ -94,7 +96,9 @@ Use this space to show useful examples of how a project can be used. Additional 
 _For more examples, please refer to the [Documentation](https://example.com)_ -->
 
 ## Built With
+
 ### Svelte + Vite
+
 This template should help get you started developing with Svelte in Vite.
 
 ### Recommended IDE Setup
@@ -146,8 +150,8 @@ export default writable(0)
 
 See the [open issues](https://github.com/thananon/covidth/issues) for a list of proposed features (and known issues).
 
-
 <!-- CONTRIBUTING -->
+
 ## Contributing
 
 Contributions are what make the Website Covid data, inspire, and create. Any contributions you make are **greatly appreciated**.
@@ -164,21 +168,22 @@ Contributions are what make the Website Covid data, inspire, and create. Any con
 Distributed under the MIT License. See `LICENSE` for more information. -->
 <!-- ROADMAP -->
 
-
 <!-- CONTACT -->
+
 ## CONTACT
+
 Name - [@9ARM](https://www.youtube.com/channel/UCoiEtD4v1qMAqHV5MDI5Qpg) - Youtube
 
 Project Link: [https://github.com/thananon/covidth](https://github.com/thananon/covidth)
 
 <!-- ACKNOWLEDGEMENTS -->
+
 ## Acknowledgements
 
-* [Svelte](https://svelte.dev/)
-* [vite](https://vitejs.dev/)
-* [chart.js](https://www.chartjs.org/)
-* [SvelteStrap](https://sveltestrap.js.org/)
-
+- [Svelte](https://svelte.dev/)
+- [vite](https://vitejs.dev/)
+- [chart.js](https://www.chartjs.org/)
+- [SvelteStrap](https://sveltestrap.js.org/)
 
 [contributors-shield]: https://img.shields.io/github/contributors/thananon/covidth.svg?style=for-the-badge
 [contributors-url]: https://github.com/thananon/covidth/graphs/contributors

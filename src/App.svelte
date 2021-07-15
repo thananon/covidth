@@ -111,7 +111,7 @@
 </svelte:head>
 
 <main>
-  <h1>เราตรวจโควิดกันวันละกี่เคส?</h1>
+  <h1 class="site-title">เราตรวจโควิดกันวันละกี่เคส ?</h1>
 
   <Cards />
 
@@ -129,7 +129,7 @@
           on:blur={(e) => onSelectChange(e)}
         >
           {#each options as option}
-            <option id="select3Days" value={option} selected={selectedList[0]}>
+            <option id="select3Days" value={option}>
               <span>
                 {option} วัน
               </span>
@@ -152,6 +152,10 @@
 </main>
 
 <style>
+  .site-title {
+    font-weight: 700;
+  }
+
   #chartWrapper {
     margin: 40px auto;
     width: 90vw;
