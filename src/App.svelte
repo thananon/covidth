@@ -4,11 +4,13 @@
   import covtest from "./covtest.json"
   import Cards from "./Cards.svelte"
 
-  Chart.defaults.font.family = '"Anakotmai", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif'
+  Chart.defaults.font.family =
+    '"Anakotmai", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif'
 
-  let recordNumber = 30
   let myChart
   let selectedList = [false, false, true]
+  let recordNumber = 30
+  const options = [3, 7, 30]
 
   if (screen.width < 768) {
     recordNumber = 3
@@ -84,17 +86,16 @@
     )
   }
 
-  const onSelectChange = () => {
-    let value = document.getElementById("getShowDate").value
+  const onSelectChange = (e) => {
+    const value = e.target.value
     if (recordNumber != value) {
       recordNumber = value
       myChart.destroy()
       loadChart()
-      if(value === '30'){
-        document.getElementById("chartInner").style.minWidth = '750px'
-      }
-      else if(value === '7'){
-        document.getElementById("chartInner").style.minWidth = '500px'
+      if (value === "30") {
+        document.getElementById("chartInner").style.minWidth = "750px"
+      } else if (value === "7") {
+        document.getElementById("chartInner").style.minWidth = "500px"
       }
     }
   }
@@ -110,7 +111,7 @@
 </svelte:head>
 
 <main>
-  <h1>เราตรวจโควิดกันวันละกี่เคส?</h1>
+  <h1 class="site-title">เราตรวจโควิดกันวันละกี่เคส ?</h1>
 
   <Cards />
 
@@ -119,10 +120,21 @@
     <div class="row">
       <div class="col" />
       <div class="col-6 col-md-4">
-        <select id="getShowDate" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" on:change={() => {onSelectChange()}} >
-          <option id="select3Days" value="3" selected={selectedList[0]} >3 วัน</option >
-          <option id="select7Days" value="7" selected={selectedList[1]} >7 วัน</option >
-          <option id="select30Days" value="30" selected={selectedList[2]} >30 วัน</option >
+        <select
+          id="getShowDate"
+          class="form-select form-select-lg mb-3"
+          aria-label=".form-select-lg example"
+          value={recordNumber}
+          on:change={(e) => onSelectChange(e)}
+          on:blur={(e) => onSelectChange(e)}
+        >
+          {#each options as option}
+            <option id="select3Days" value={option}>
+              <span>
+                {option} วัน
+              </span>
+            </option>
+          {/each}
         </select>
       </div>
       <div class="col" />
@@ -140,6 +152,10 @@
 </main>
 
 <style>
+  .site-title {
+    font-weight: 700;
+  }
+
   #chartWrapper {
     margin: 40px auto;
     width: 90vw;
@@ -147,7 +163,7 @@
     /* height: 80vh; */
   }
 
-  #chartInner{
+  #chartInner {
     width: 100%;
   }
 
@@ -206,20 +222,10 @@
     /* max-width: 14rem; */
   }
 
-  p {
-    /* max-width: 14rem; */
-    margin: 1rem auto;
-    line-height: 1.35;
-  }
-
   @media (min-width: 480px) {
     h1 {
       max-width: none;
       font-size: 6vh;
-    }
-
-    p {
-      max-width: none;
     }
   }
 </style>
