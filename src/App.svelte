@@ -107,6 +107,7 @@
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
   />
+  <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
 </svelte:head>
 
 <main>
@@ -137,6 +138,8 @@
 
   <h5>ข้อมูลอัพเดทล่าสุดวันที่ 10/07/2021 จากกรมวิทยาศาสตร์ข้อมูล</h5>
   เราก็ไม่เข้าใจทำไมข้อมูลพวกนี้เค้าไม่อัพเดททุกวัน
+
+  <h5><a href="https://github.com/thananon/covidth"><span class="iconify" data-icon="logos-github-icon" data-inline="false"></span></a></h5>
 </main>
 
 <style>
