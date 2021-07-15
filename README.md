@@ -1,10 +1,105 @@
-# Svelte + Vite
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
 
+<!-- PROJECT LOGO -->
+<br />
+<p align="center">
+  <a href="https://github.com/thananon/covidth">
+    <img src="public/favicon.ico" alt="Logo" width="80" height="80">
+  </a>
+
+  <h3 align="center">COVID TH</h3>
+
+  <p align="center">
+    Project website display Covid data.
+    <br />
+    <a href="https://github.com/thananon/covidth"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+    <a href="https://covidth.info/">View Website</a>
+    ·
+    <a href="https://github.com/thananon/covidth/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/thananon/covidth/issues">Request Feature</a>
+  </p>
+</p>
+
+<!-- TABLE OF CONTENTS -->
+<details open="open">
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+        <li><a href="#Recommended IDE Setup">Recommended IDE Setup</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation & Run</a></li>
+      </ul>
+    </li>
+    <!-- <li><a href="#usage">Usage</a></li> -->
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#contributing">Contributing</a></li>
+    <!-- <li><a href="#license">License</a></li> -->
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#acknowledgements">Acknowledgements</a></li>
+  </ol>
+</details>
+
+
+
+<!-- ABOUT THE PROJECT -->
+# About The Project
+[![CovidTH][product-screenshot]](https://covidth.info/)
+
+
+*** ฝากเติมหน่อยนะครับ ^ ^
+
+<!-- GETTING STARTED -->
+## Getting Started
+
+To get a local copy up and running follow these simple steps.
+
+### Prerequisites
+
+* Node.js
+
+### Installation
+
+1. Clone the repo
+   ```sh
+   git clone https://github.com/thananon/covidth.git
+   ```
+2. Install NPM packages
+   ```sh
+   npm install
+   ```
+3. Run Vite
+   ```sh
+   npm run dev
+   ```
+
+<!-- USAGE EXAMPLES -->
+<!-- ## Usage
+
+Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+
+_For more examples, please refer to the [Documentation](https://example.com)_ -->
+
+## Built With
+### Svelte + Vite
 This template should help get you started developing with Svelte in Vite.
 
-## Recommended IDE Setup
+### Recommended IDE Setup
 
-[VSCode](https://code.visualstudio.com/) + [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode).
+[VSCode](https://code.visualstudio.com/) + [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode)
 
 ## Need an official Svelte framework?
 
@@ -46,3 +141,51 @@ If you have state that's important to retain within a component, consider creati
 import { writable } from "svelte/store"
 export default writable(0)
 ```
+
+## Roadmap
+
+See the [open issues](https://github.com/thananon/covidth/issues) for a list of proposed features (and known issues).
+
+
+<!-- CONTRIBUTING -->
+## Contributing
+
+Contributions are what make the Website Covid data, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/Foo`)
+3. Commit your Changes (`git commit -m 'Add some FooFeature'`)
+4. Push to the Branch (`git push origin feature/FooFeature`)
+5. Open a Pull Request
+
+<!-- LICENSE -->
+<!-- ## License
+
+Distributed under the MIT License. See `LICENSE` for more information. -->
+<!-- ROADMAP -->
+
+
+<!-- CONTACT -->
+## CONTACT
+Name - [@9ARM](https://www.youtube.com/channel/UCoiEtD4v1qMAqHV5MDI5Qpg) - Youtube
+
+Project Link: [https://github.com/thananon/covidth](https://github.com/thananon/covidth)
+
+<!-- ACKNOWLEDGEMENTS -->
+## Acknowledgements
+
+* [Svelte](https://svelte.dev/)
+* [vite](https://vitejs.dev/)
+* [chart.js](https://www.chartjs.org/)
+* [SvelteStrap](https://sveltestrap.js.org/)
+
+
+[contributors-shield]: https://img.shields.io/github/contributors/thananon/covidth.svg?style=for-the-badge
+[contributors-url]: https://github.com/thananon/covidth/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/thananon/covidth.svg?style=for-the-badge
+[forks-url]: https://github.com/thananon/covidth/network/members
+[stars-shield]: https://img.shields.io/github/stars/thananon/covidth.svg?style=for-the-badge
+[stars-url]: https://github.com/thananon/covidth/stargazers
+[issues-shield]: https://img.shields.io/github/issues/thananon/covidth.svg?style=for-the-badge
+[issues-url]: https://github.com/thananon/covidth/issues
+[product-screenshot]: public/rattaban_huakuy_v2.png

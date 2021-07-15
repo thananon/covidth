@@ -96,9 +96,6 @@
       else if(value === '7'){
         document.getElementById("chartInner").style.minWidth = '500px'
       }
-      else{
-        document.getElementById("chartInner").style.minWidth = null
-      }
     }
   }
 
