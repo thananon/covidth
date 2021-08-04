@@ -2,7 +2,6 @@
   import { onMount } from "svelte"
   import dayjs from "dayjs"
   import locale_th from 'dayjs/locale/th'
-  import covtest from "./covtest.json"
   import relativeTime from 'dayjs/plugin/relativeTime'
   import timezone from 'dayjs/plugin/timezone'
   import utc from 'dayjs/plugin/utc'
@@ -13,15 +12,19 @@
   dayjs.extend(relativeTime)
   dayjs.locale('th')
   
-  const latestTestRecord = covtest.result.records.slice(-1)[0]
-  const latestTestRecordDate = dayjs(latestTestRecord.Date)
   const numberFormatter = new Intl.NumberFormat("en-TH", { maximumFractionDigits: 3 })
 
   let latestData = {}
   let latestDataDate
   let latestDataDateWithTest = {}
+  let latestTestRecord = []
+  let latestTestRecordDate
 
   onMount(async () => {
+    const covFetch = await fetch("https://raw.githubusercontent.com/bossoq/ThaiCovidTestData/main/covtest.json")
+    const covtest = await covFetch.json()
+    latestTestRecord = covtest.result.records.slice(-1)[0]
+    latestTestRecordDate = dayjs(latestTestRecord.Date)
     const briefingsRes = await fetch(
       "https://raw.githubusercontent.com/wiki/djay/covidthailand/cases_briefings",
     )
@@ -47,13 +50,13 @@
     <div class="card bg-pos">
       <div class="card-body">
         <h5 class="card-title">ตรวจ</h5>
-        <p class="card-text" id="tests">{numberFormatter.format(latestTestRecord.Total)}</p>
+        <p class="card-text" id="tests">{latestTestRecord.Total ? numberFormatter.format(latestTestRecord.Total) : "..."}</p>
       </div>
     </div>
     <div class="card bg-death">
       <div class="card-body">
         <h5 class="card-title">ติด</h5>
-        <p class="card-text" id="cases">{numberFormatter.format(latestTestRecord.Pos)}</p>
+        <p class="card-text" id="cases">{latestTestRecord.Pos ? numberFormatter.format(latestTestRecord.Pos) : "..."}</p>
       </div>
     </div>
   </div>
@@ -64,7 +67,7 @@
       <div class="card-body">
         <h5 class="card-title">% การตรวจพบ</h5>
         <p class="card-text" id="deaths">
-          {((latestTestRecord.Pos / latestTestRecord.Total) * 100).toFixed(3)}%
+          {latestTestRecord.Pos ? ((latestTestRecord.Pos / latestTestRecord.Total) * 100).toFixed(3) : "..."}%
         </p>
       </div>
     </div>
