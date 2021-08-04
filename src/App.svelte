@@ -1,14 +1,26 @@
 <script>
   import Chart from "chart.js/auto"
   import { onMount } from "svelte"
-  import covtest from "./covtest.json"
+  import dayjs from "dayjs"
+  import locale_th from 'dayjs/locale/th'
+  import relativeTime from 'dayjs/plugin/relativeTime'
+  import timezone from 'dayjs/plugin/timezone'
+  import utc from 'dayjs/plugin/utc'
   import Cards from "./Cards.svelte"
 
   Chart.defaults.font.family = '"Anakotmai", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif'
 
+  dayjs.extend(utc)
+  dayjs.extend(timezone)
+  dayjs.tz.setDefault("Asia/Bangkok")
+  dayjs.extend(relativeTime)
+  dayjs.locale('th')
+
   let recordNumber = 30
   let myChart
   let selectedList = [false, false, true]
+  let latestTestRecord = []
+  let latestTestRecordDate
 
   if (screen.width < 768) {
     recordNumber = 3
@@ -19,6 +31,10 @@
   }
 
   const loadChart = async () => {
+    const covFetch = await fetch("https://raw.githubusercontent.com/bossoq/ThaiCovidTestData/main/covtest.json")
+    const covtest = await covFetch.json()
+    latestTestRecord = covtest.result.records.slice(-1)[0]
+    latestTestRecordDate = dayjs(latestTestRecord.Date).format("DD/MM/YYYY")
     const records = covtest.result.records.slice(-recordNumber)
     const labels = records.map((record) => record.Date.split(" ")[0])
     const data = {
@@ -135,7 +151,7 @@
     </div>
   </div>
 
-  <h5>ข้อมูลอัพเดทล่าสุดวันที่ 10/07/2021 จากกรมวิทยาศาสตร์ข้อมูล</h5>
+  <h5>ข้อมูลอัพเดทล่าสุดวันที่ {latestTestRecordDate ? latestTestRecordDate : "..."} จากกรมวิทยาศาสตร์ข้อมูล</h5>
   เราก็ไม่เข้าใจทำไมข้อมูลพวกนี้เค้าไม่อัพเดททุกวัน
 </main>
 
